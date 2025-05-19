@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { NavLink } from 'react-router';
+import { Navigate, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-  const {Login} = useContext(AuthContext)
+  const {Login,LoginWithGoogle,user,setUser} = useContext(AuthContext)
   const HandleLogin = (e) =>{
      e.preventDefault();
     const form = e.target;
@@ -32,6 +32,37 @@ const Login = () => {
             });
     })
   }
+
+ const handleLoginWithGoogle = (e) => {
+  e.preventDefault();
+
+  LoginWithGoogle()
+    .then(result => {
+      const user = result.user;
+      setUser(user); // Optional: only if you're managing auth context/state
+
+      Swal.fire({
+        title: 'Logged in successfully!',
+        text: `Welcome back, ${user.displayName || 'User'}!`,
+        icon: 'success',
+        confirmButtonColor: '#16a34a',
+        confirmButtonText: 'Continue',
+      });
+
+      Navigate('/');
+    })
+    .catch(error => {
+      console.error('Google login error:', error.code);
+
+      Swal.fire({
+        title: 'Login Failed!',
+        text: error.message,
+        icon: 'error',
+        confirmButtonColor: '#ef4444',
+      });
+    });
+};
+
     return (
         <div>
             <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">
@@ -76,7 +107,7 @@ const Login = () => {
     </div>
 
    
-    <button
+    <button onClick={handleLoginWithGoogle}
       type="button"
       className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-2 hover:bg-gray-100 transition"
     >
