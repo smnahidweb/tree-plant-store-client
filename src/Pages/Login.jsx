@@ -39,7 +39,7 @@ const Login = () => {
   LoginWithGoogle()
     .then(result => {
       const user = result.user;
-      setUser(user); // Optional: only if you're managing auth context/state
+      setUser(user);
 
       Swal.fire({
         title: 'Logged in successfully!',
