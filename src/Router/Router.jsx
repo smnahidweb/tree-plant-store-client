@@ -9,6 +9,7 @@ import MyPlants from '../Pages/MyPlants';
 import AddPlant from '../Pages/AddPlant';
 import Details from '../Pages/Details';
 import PrivateRoute from '../Provider/PrivateRoute';
+import Update from '../Pages/Update';
 
 
 
@@ -54,6 +55,12 @@ const Router = createBrowserRouter([
         <Details></Details>
         </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`)
+      },
+      {
+        path:'/updateTree/:id',
+        loader: ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+        element:<Update></Update>
+      
       }
 
     ]
