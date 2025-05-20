@@ -8,6 +8,7 @@ import AllPlanst from '../Pages/AllPlanst';
 import MyPlants from '../Pages/MyPlants';
 import AddPlant from '../Pages/AddPlant';
 import Details from '../Pages/Details';
+import PrivateRoute from '../Provider/PrivateRoute';
 
 
 
@@ -49,7 +50,9 @@ const Router = createBrowserRouter([
       },
       {
         path: '/plants/:id',
-        Component:Details,
+        element: <PrivateRoute>
+        <Details></Details>
+        </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`)
       }
 

@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Navigate, NavLink } from 'react-router';
+import { Navigate, NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
   const {Login,LoginWithGoogle,user,setUser} = useContext(AuthContext)
+  const [error,setError] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation();
   const HandleLogin = (e) =>{
      e.preventDefault();
     const form = e.target;
@@ -21,15 +24,11 @@ const Login = () => {
   icon: "success",
   draggable: true
 });
+navigate(`${location.state ? location.state : "/"}`)
     })
     .catch(error => {
       console.log(error.code)
-      Swal.fire({
-              title: 'Error!',
-              text: error.message,
-              icon: 'error',
-              confirmButtonColor: '#ef4444',
-            });
+      setError(error.code)
     })
   }
 
@@ -48,8 +47,9 @@ const Login = () => {
         confirmButtonColor: '#16a34a',
         confirmButtonText: 'Continue',
       });
-
-      Navigate('/');
+      
+      // Navigate('/');
+      navigate(`${location.state ? location.state : "/"}`)
     })
     .catch(error => {
       console.error('Google login error:', error.code);
@@ -97,6 +97,9 @@ const Login = () => {
       >
         Login
       </button>
+     {
+      error &&  <p className='text-red-500'><small>{error}</small></p>
+     }
     </form>
 
     

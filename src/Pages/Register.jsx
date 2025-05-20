@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
   const {CreateUser,setUser} = useContext(AuthContext)
+  const [passwordError,setPasswordError] = useState("")
+  const navigate = useNavigate()
   const HandleRegister = (e) =>{
     e.preventDefault();
     const form = e.target;
@@ -13,6 +15,16 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     
+
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        'Password must be at least 6 characters, include uppercase and lowercase letters.'
+      );
+      return;
+    }
+
     CreateUser(email, password)
     .then(result => {
       const user = result.user;
@@ -24,6 +36,7 @@ const Register = () => {
         confirmButtonColor: '#16a34a',
         confirmButtonText: 'Continue',
       });
+      navigate('/')
     })
     .catch(error => {
       console.error('Registration Error:', error.code);
@@ -81,6 +94,7 @@ const Register = () => {
           placeholder="••••••••"
         />
       </div>
+       {passwordError && <p className="text-red-500 text-sm mt-2">{passwordError}</p>}
 
       <button
         type="submit"
