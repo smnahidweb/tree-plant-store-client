@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "daisyui"; */

@@ -9,7 +9,7 @@ const Banner = () => {
     {
       title: 'Plant Care Tips',
       desc: 'Nurture your green companions with proper watering, light, and organic nourishment for vibrant growth.',
-      image: 'https://i.ibb.co/1Y4H6Vm1/plant3.png',
+      image: 'https://i.ibb.co/gLbP0Z31/plants12.jpg',
     },
     {
       title: 'Indoor Plant Varieties',

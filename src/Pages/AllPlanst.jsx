@@ -5,7 +5,7 @@ import TableCard from './TableCard';
 const AllPlanst = () => {
   const initialData = useLoaderData();
   const [plantsData, setPlantsData] = useState(initialData);
-
+  
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-green-200 shadow-lg rounded-lg overflow-hidden">

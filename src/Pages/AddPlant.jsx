@@ -62,19 +62,19 @@ const AddPlant = () => {
     {/* Image URL */}
     <div>
       <label className="block text-sm font-medium text-green-700">Image URL</label>
-      <input type="text" name="image" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='Image URL' type="text" name="image" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Plant Name */}
     <div>
       <label className="block text-sm font-medium text-green-700">Plant Name</label>
-      <input type="text" name="name" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='Plant Name' type="text" name="name" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Category */}
     <div>
       <label className="block text-sm font-medium text-green-700">Category</label>
-      <select name="category" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
+      <select placeholder='Category' name="category" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
         <option value="succulent">Succulent</option>
         <option value="fern">Fern</option>
         <option value="flowering">Flowering</option>
@@ -84,13 +84,13 @@ const AddPlant = () => {
     {/* Description */}
     <div>
       <label className="block text-sm font-medium text-green-700">Description</label>
-      <textarea name="description" rows="4" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <textarea placeholder='Description' name="description" rows="4" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Care Level */}
     <div>
       <label className="block text-sm font-medium text-green-700">Care Level</label>
-      <select name="careLevel" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
+      <select  name="careLevel" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
         <option value="easy">Easy</option>
         <option value="moderate">Moderate</option>
         <option value="difficult">Difficult</option>
@@ -100,37 +100,37 @@ const AddPlant = () => {
     {/* Watering Frequency */}
     <div>
       <label className="block text-sm font-medium text-green-700">Watering Frequency</label>
-      <input type="text" name="wateringFrequency" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='Watering Frequency' type="text" name="wateringFrequency" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Last Watered Date */}
     <div>
       <label className="block text-sm font-medium text-green-700">Last Watered Date</label>
-      <input type="date" name="lastWatered" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='Last Watered Date' type="date" name="lastWatered" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Next Watering Date */}
     <div>
       <label className="block text-sm font-medium text-green-700">Next Watering Date</label>
-      <input type="date" name="nextWatering" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input type="date" placeholder='Next Watered Date' name="nextWatering" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Health Status */}
     <div>
       <label className="block text-sm font-medium text-green-700">Health Status</label>
-      <input type="text" name="healthStatus" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='Health Status' type="text" name="healthStatus" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* User Email */}
     <div>
       <label className="block text-sm font-medium text-green-700">User Email</label>
-      <input type="email" name="userEmail" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='User Email' type="email" name="userEmail" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* User Name */}
     <div>
       <label className="block text-sm font-medium text-green-700">User Name</label>
-      <input type="text" name="userName" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input type="text" placeholder='User Name' name="userName" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* Submit Button */}

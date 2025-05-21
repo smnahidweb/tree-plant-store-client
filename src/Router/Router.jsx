@@ -43,7 +43,9 @@ const Router = createBrowserRouter([
       },
       {
         path:'/myPlants',
-        Component: MyPlants
+        element: <PrivateRoute>
+          <MyPlants></MyPlants>
+        </PrivateRoute>
       },
       {
         path:'/addPlants',

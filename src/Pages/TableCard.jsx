@@ -17,7 +17,8 @@ const TableCard = ({ data }) => {
   } = data;
 
   return (
-    <tr className="hover:bg-green-50 transition">
+    
+      <tr className="hover:bg-green-50 transition">
       <td className="px-6 py-4">
         <img
           src={image}
@@ -49,6 +50,7 @@ const TableCard = ({ data }) => {
         </div>
       </td>
     </tr>
+    
   );
 };
 
