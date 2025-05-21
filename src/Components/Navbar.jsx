@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react'
 import { NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -7,6 +7,20 @@ import { useTheme } from '../Provider/ThemeProvider';
 
 const Navbar = () => {
   const {user,Logout} = useContext(AuthContext)
+  const [theme,setTheme] = useState(localStorage.getItem("theme")?localStorage.getItem("theme"):window.matchMedia("(prefers-colors: light)").matches?"light":"dark")
+
+useEffect( () => {
+
+localStorage.setItem("theme",theme)
+document.documentElement.setAttribute("data-theme",theme)
+
+},[theme] )
+
+
+const handleThemeToggle = (e) =>{
+setTheme(e.target.checked? "dark": "light" )
+}
+
   const { darkMode, setDarkMode } = useTheme();
    const links = <>
     
@@ -56,24 +70,27 @@ const HandleLogOut = () => {
     </ul>
   </div>
   <div className="navbar-end">
-   <div className="relative group mr-8 mt-2 z-50">
+  {
+    user &&  <div className="relative group mr-8 mt-2 z-50">
   <img
     className="w-10 h-10 rounded-full cursor-pointer"
     src={user.photoURL}
     alt="Profile"
   />
   <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-4 py-1 text-sm bg-gray-800 text-white rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap max-w-xs text-center z-50 shadow-lg">
-    {user.displayName}
+    {user?.displayName}
   </div>
 </div>
+  }
 
   
-     <button
+     {/* <button
           onClick={() => setDarkMode(!darkMode)}
           className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
         >
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+        </button> */}
+        <input type="checkbox" name="" id=""  className='toggle' onChange={handleThemeToggle} checked={theme==="dark"} />
     {
       user ? <button onClick={HandleLogOut} className="btn bg-green-600 text-white" >Log out</button> : <NavLink className="btn bg-green-600 text-white"  to={"/login"}>Log in</NavLink>
     }

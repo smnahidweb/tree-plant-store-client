@@ -16,7 +16,7 @@ const EasyMaintain = () => {
       });
   }, []);
     return (
-        <section className="py-12 px-6 max-w-7xl mx-auto bg-gradient-to-b from-green-50 to-white rounded-xl shadow-sm">
+        <section className="py-12 px-6 max-w-7xl mx-auto  rounded-xl shadow-sm">
   <h2 className="text-4xl font-bold text-green-800 mb-8 text-center tracking-tight">
      Easy-Care Favorites
   </h2>

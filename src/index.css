@@ -1,7 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* @import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "daisyui"; */
+[ data-theme = "dark"]{
+    --TEXT-COLOR:#ffffff;
+    --HEADING-TITLE-TEXT:#0dac57;
+
+}
+
+[ data-theme = "light"]{
+    --TEXT-COLOR:black;
+     --HEADING-TITLE-TEXT:#016630;
+
+}

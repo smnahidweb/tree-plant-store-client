@@ -34,13 +34,13 @@ const Banner = () => {
         className="w-full"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index} className="bg-white py-10 px-4 md:px-16">
+          <SwiperSlide key={index} className=" py-10 px-4 md:px-16">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
              
               <div className="md:w-1/2 text-left space-y-4">
-                <h2 className="text-3xl md:text-5xl font-bold text-green-800">{slide.title}</h2>
-                <p className="text-gray-600 text-base md:text-lg">{slide.desc}</p>
-                <button className="mt-4 px-6 py-2 bg-green-700 hover:bg-green-800 text-white rounded-lg transition">
+                <h2 className="text-3xl md:text-5xl  font-bold text-[var(--HEADING-TITLE-TEXT)]">{slide.title}</h2>
+                <p className=" text-[var(--TEXT-COLOR)]  md:text-lg">{slide.desc}</p>
+                <button className="mt-4 px-6 py-2  bg-green-700 hover:bg-green-800 text-white rounded-lg transition">
                   Explore Now
                 </button>
               </div>
