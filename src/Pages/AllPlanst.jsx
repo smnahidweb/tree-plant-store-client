@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import TableCard from './TableCard';
+import NextWatering from '../Components/NextWatering';
 
 const AllPlanst = () => {
   const initialData = useLoaderData();
@@ -37,6 +38,7 @@ const AllPlanst = () => {
           }
         </tbody>
       </table>
+      <NextWatering></NextWatering>
     </div>
   );
 };

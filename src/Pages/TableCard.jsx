@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import NextWatering from '../Components/NextWatering';
 
 const TableCard = ({ data }) => {
   const {
@@ -49,7 +50,8 @@ const TableCard = ({ data }) => {
            <NavLink to={`/plants/${_id}`}> <button className='btn bg-green-600 text-white' >View</button> </NavLink>
         </div>
       </td>
-    </tr>
+    </tr> 
+   
     
   );
 };
