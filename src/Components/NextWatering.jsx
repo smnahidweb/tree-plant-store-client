@@ -31,7 +31,7 @@ const NextWatering = () => {
           />
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-xl font-semibold text-gray-800">{plant.name}</h3>
-            <span className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">
+            <span className="bg-blue-100 text-green-600 text-xs px-2 py-1 rounded-full">
               {plant.careLevel}
             </span>
           </div>

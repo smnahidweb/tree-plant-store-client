@@ -82,8 +82,15 @@ const MyPlants = () => {
 
           </div>
         </div>
+
+     {plant.length === 0 ? (
+  <div>There is no Plant for you</div>
+) : (
+  <div><p></p></div>
+)}
+
       </div>
-      
+ 
     ))}
   </div>
 </div>

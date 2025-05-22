@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router';
 
 const HomeCard = ({plant}) => {
+ 
      const {
     image,
     name,
@@ -10,6 +11,7 @@ const HomeCard = ({plant}) => {
     healthStatus,
     _id // Assuming each plant has a unique ID for routing
   } = plant;
+ 
     return (
         <div>
             <div className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300">
