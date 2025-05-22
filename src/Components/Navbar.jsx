@@ -8,7 +8,7 @@ import { useTheme } from '../Provider/ThemeProvider';
 const Navbar = () => {
   const {user,Logout} = useContext(AuthContext)
   const [theme,setTheme] = useState(localStorage.getItem("theme")?localStorage.getItem("theme"):window.matchMedia("(prefers-colors: light)").matches?"light":"dark")
-
+  const logo = "https://i.ibb.co/v4qfB40Y/plant5-modified.png"
 useEffect( () => {
 
 localStorage.setItem("theme",theme)
@@ -61,6 +61,9 @@ const HandleLogOut = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         {links}
       </ul>
+    </div>
+    <div className='w-8 h-8 rounded-4xl'>
+      <img src={logo} alt="" />
     </div>
     <a className="btn btn-ghost text-xl">Plant Tree Store</a>
   </div>

@@ -1,13 +1,19 @@
 import React from 'react';
 import { Facebook, Instagram, Mail, Phone, Twitter,TreePalm } from 'lucide-react';
 const Footer = () => {
+  const logo = "https://i.ibb.co/v4qfB40Y/plant5-modified.png"
     return (
         <div>
            <footer className="bg-gray-900 text-gray-300 py-10 mt-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
        
-        <div>
-          <TreePalm /><h2 className="text-2xl font-bold text-white mb-3"> PlantTree Store</h2>
+        <div className=''>
+       <div className='flex gap-2'>
+         <div className='w-8 h-8 rounded-4xl'>
+          <img src={logo} alt="" />
+        </div>
+        <h2 className="text-2xl font-bold text-white mb-3"> PlantTree Store</h2>
+       </div>
           <p className="text-sm text-gray-400">
             Grow your green space with ease. We deliver healthy plants and expert care tips.
           </p>
