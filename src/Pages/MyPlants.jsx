@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
+import { div } from 'framer-motion/client';
 
 const MyPlants = () => {
   const { user } = useContext(AuthContext);
@@ -49,6 +50,7 @@ const MyPlants = () => {
    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-6">
   <h2 className="text-4xl font-bold mb-8 text-green-700 text-center"> My Plants Collection</h2>
   <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
     {plants.map((plant) => (
       <div
         key={plant._id}
@@ -77,9 +79,11 @@ const MyPlants = () => {
             >
               Delete
             </button>
+
           </div>
         </div>
       </div>
+      
     ))}
   </div>
 </div>
