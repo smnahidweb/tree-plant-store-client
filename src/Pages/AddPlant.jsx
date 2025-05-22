@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddPlant = () => {
+  const {user } = useContext(AuthContext)
     const HandleAdd = (e) =>{
         e.preventDefault();
         const form = e.target;
@@ -124,7 +126,7 @@ const AddPlant = () => {
     {/* User Email */}
     <div>
       <label className="block text-sm font-medium text-green-700">User Email</label>
-      <input placeholder='User Email' type="email" name="userEmail" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+      <input placeholder='User Email' defaultValue={user.email} type="email" name="userEmail" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
     {/* User Name */}

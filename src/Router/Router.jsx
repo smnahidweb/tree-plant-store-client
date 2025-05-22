@@ -10,6 +10,7 @@ import AddPlant from '../Pages/AddPlant';
 import Details from '../Pages/Details';
 import PrivateRoute from '../Provider/PrivateRoute';
 import Update from '../Pages/Update';
+import Loading from '../Components/Loading';
 
 
 
@@ -22,9 +23,10 @@ const Router = createBrowserRouter([
     errorElement:Error,
     children: [
       {
-        path: '',
+        path: '/',
         Component: Home,
         loader: ()=> fetch('http://localhost:3000/plants/'),
+         hydrateFallbackElement: <Loading></Loading>
         
         
       },
@@ -39,7 +41,8 @@ const Router = createBrowserRouter([
       {
         path:'/allPlants',
         loader: ()=> fetch('http://localhost:3000/plants/'),
-        Component:AllPlanst
+        Component:AllPlanst,
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path:'/myPlants',
@@ -58,28 +61,21 @@ const Router = createBrowserRouter([
         element: <PrivateRoute>
         <Details></Details>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
+         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path:'/updateTree/:id',
         loader: ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
-        element:<Update></Update>
+        element:<Update></Update>,
+         hydrateFallbackElement: <Loading></Loading>
       
       }
 
     ]
   },
   
-//   {
-//     path: 'details/:id',
-//     element: <PrivateRoute> <Details></Details> </PrivateRoute> ,
-//     loader: () => fetch('/Data.json'),
-//   },
-//   {
-    
-//       path: 'profile',
-//       element: <PrivateRoute><Profile></Profile></PrivateRoute>
-//   },
+
   
   {
     path: "*",

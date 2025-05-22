@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 const HomeCard = ({plant}) => {
@@ -9,7 +9,7 @@ const HomeCard = ({plant}) => {
     category,
     careLevel,
     healthStatus,
-    _id // Assuming each plant has a unique ID for routing
+    _id 
   } = plant;
  
     return (

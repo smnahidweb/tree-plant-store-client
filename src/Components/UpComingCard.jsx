@@ -8,10 +8,12 @@ const UpComingCard = ({ allPlant }) => {
 
   // Filter plants for today
   const upcomingWateringPlants = allPlant.filter((plant) => {
-    const plantDate = new Date(plant.nextWatering).toISOString().split("T")[0];
-    return plantDate === today;
-  });
-
+  if (!plant.nextWatering) return false;
+  const date = new Date(plant.nextWatering);
+  if (isNaN(date)) return false;
+  const plantDate = date.toISOString().split("T")[0];
+  return plantDate === today;
+});
   // Initialize checklist state for all plants to false
   useEffect(() => {
     const initialChecklist = {};
@@ -28,7 +30,7 @@ const UpComingCard = ({ allPlant }) => {
       if (newValue) {
         Swal.fire({
           icon: 'success',
-          title: '✅ Marked as Watered!',
+          title: ' Marked as Watered!',
           text: `${plantName} has been watered for today.`,
           confirmButtonColor: '#3b82f6',
         });
