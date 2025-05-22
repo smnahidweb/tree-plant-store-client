@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const EasyMaintain = () => {
   const [plants, setPlants] = useState([]);
@@ -16,15 +18,15 @@ const EasyMaintain = () => {
       });
   }, []);
     return (
-        <section className="py-12 px-6 max-w-7xl mx-auto  rounded-xl shadow-sm">
+      <section className="py-12 px-6 max-w-7xl mx-auto rounded-xl shadow-sm">
   <h2 className="text-4xl font-bold text-green-600 mb-8 text-center tracking-tight">
-     Easy-Care Favorites
+    Easy-Care Favorites
   </h2>
 
   {easyCarePlants.length === 0 ? (
     <p className="text-center text-gray-500 text-lg">No easy-care plants found.</p>
   ) : (
-    <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3 ">
+    <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
       {easyCarePlants.map((plant) => (
         <div
           key={plant._id}
@@ -35,29 +37,42 @@ const EasyMaintain = () => {
             alt={plant.name}
             className="w-full h-48 object-cover rounded-xl mb-4"
           />
+          
           <div className="flex justify-between items-center mb-2">
-            <h3 className="text-xl font-semibold text-green-900">
-              {plant.name}
-            </h3>
-            <span className="bg-green-100 text-green-600 text-xs font-medium px-2 py-1 rounded-full">
+            <h3 className="text-xl font-semibold text-green-900">{plant.name}</h3>
+            
+            <span
+              className="bg-green-100 text-green-600 text-xs font-medium px-2 py-1 rounded-full cursor-help"
+              data-tooltip-id={`easycare-tooltip-${plant._id}`}
+              data-tooltip-content="These plants need little care — great for beginners!"
+            >
               Easy Care
             </span>
+            <Tooltip id={`easycare-tooltip-${plant._id}`} place="top" />
           </div>
+
           <p className="text-sm text-gray-700 mb-3 line-clamp-2">
             {plant.description || "No description available."}
           </p>
-          <div className="text-xs text-gray-500">
-            💧 <span className="text-blue-600 font-medium">Next Watering:</span>{" "}
-            {plant.nextWatering}
+
+          <div
+            className="text-xs text-gray-500 cursor-help"
+            data-tooltip-id={`watering-tooltip-${plant._id}`}
+            data-tooltip-content="Scheduled date to water the plant next"
+          >
+            💧 <span className="text-blue-600 font-medium">Next Watering:</span> {plant.nextWatering}
+            <Tooltip id={`watering-tooltip-${plant._id}`} place="bottom" />
           </div>
+
           <NavLink to={`/plants/${plant._id}`}>
-            <button className='btn w-full mt-2 bg-green-500 text-white'>View</button>
+            <button className="btn w-full mt-2 bg-green-500 text-white">View</button>
           </NavLink>
         </div>
       ))}
     </div>
   )}
 </section>
+
 
     );
 };

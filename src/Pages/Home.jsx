@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Banner from '../Components/Banner';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigation } from 'react-router';
 import HomeCard from './HomeCard';
 import PlanGuide from './PlanGuide';
 import EasyMaintain from '../Components/EasyMaintain';
 import UpComingWatering from '../Components/UpComingWatering';
 import Hero from '../Components/Hero';
 import AllPlanst from './AllPlanst';
+import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading';
+
 
 const Home = () => {
+ 
+  const {loading} = useContext(AuthContext)
+    
     const allPlant = useLoaderData();
     console.log(allPlant) 
+    
     const [showAll, setShowAll] = useState(false);
       const visiblePlants = showAll ? allPlant : allPlant.slice(0, 6);
+       if(loading){
+          return <Loading></Loading>
+         }
     return (
          <div className='text-black dark:bg-gray-900 dark:text-white min-h-screen p-6'>
+          
       <Hero />
       <Banner />
       <h2 className='text-4xl text-green-600 text-center font-bold mt-12'>Plants</h2>
@@ -44,6 +55,7 @@ const Home = () => {
       <div>
         <UpComingWatering allPlant={allPlant} />
       </div>
+    
     </div>
     );
 };

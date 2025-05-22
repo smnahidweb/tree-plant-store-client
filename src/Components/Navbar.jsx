@@ -65,7 +65,7 @@ const HandleLogOut = () => {
     <div className='w-8 h-8 rounded-4xl'>
       <img src={logo} alt="" />
     </div>
-    <a className="btn btn-ghost text-xl">Plant Tree Store</a>
+    <a className="btn btn-ghost text-2xl font-bold font-poppins text-green-600">TreePlant </a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

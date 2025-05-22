@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router';
-import NextWatering from '../Components/NextWatering';
 
 const TableCard = ({ data }) => {
-   
   const {
     _id,
     image,
@@ -15,25 +13,15 @@ const TableCard = ({ data }) => {
     nextWatering,
     healthStatus,
     userEmail,
-    userName
+    userName,
   } = data;
 
-  // const handleSort = () => {
-  //   const sortedPlants = [...data].sort((a, b) => {
-  //     return new Date(a.nextWatering) - new Date(b.nextWatering);
-  //   });
-  //   setPlants(sortedPlants);
-  //   setSorted(true);
-  // };
-
   return (
-    
-      <tr className="hover:bg-green-50 transition">
-         
+    <tr className="hover:bg-green-50 transition">
       <td className="px-6 py-4">
         <img
           src={image}
-          alt="Plant"
+          alt={name}
           className="w-16 h-16 object-cover rounded-md border"
         />
       </td>
@@ -53,16 +41,13 @@ const TableCard = ({ data }) => {
           <span className="font-semibold">{userName}</span>
           <span className="text-xs text-gray-500">{userEmail}</span>
         </div>
-        
       </td>
-      <td>
-        <div>
-           <NavLink to={`/plants/${_id}`}> <button className='btn bg-green-600 text-white' >View</button> </NavLink>
-        </div>
+      <td className="px-6 py-4">
+        <NavLink to={`/plants/${_id}`}>
+          <button className="btn bg-green-600 text-white">View</button>
+        </NavLink>
       </td>
-    </tr> 
-   
-    
+    </tr>
   );
 };
 

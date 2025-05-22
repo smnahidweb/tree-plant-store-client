@@ -12,7 +12,7 @@ const Footer = () => {
          <div className='w-8 h-8 rounded-4xl'>
           <img src={logo} alt="" />
         </div>
-        <h2 className="text-2xl font-bold text-white mb-3"> PlantTree Store</h2>
+        <h2 className="text-2xl font-bold text-white mb-3"> TreePlant</h2>
        </div>
           <p className="text-sm text-gray-400">
             Grow your green space with ease. We deliver healthy plants and expert care tips.

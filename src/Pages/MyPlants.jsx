@@ -3,9 +3,10 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
 import { div } from 'framer-motion/client';
+import Loading from '../Components/Loading';
 
 const MyPlants = () => {
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
   const navigate = useNavigate();
 
@@ -16,7 +17,9 @@ const MyPlants = () => {
         .then(data => setPlants(data));
     }
   }, [user]);
-
+if(loading){
+  return <Loading></Loading>
+}
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Are you sure?',
