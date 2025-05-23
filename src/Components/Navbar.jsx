@@ -3,7 +3,7 @@ import { Moon, Sun } from 'lucide-react'
 import { NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { useTheme } from '../Provider/ThemeProvider';
+
 
 const Navbar = () => {
   const {user,Logout} = useContext(AuthContext)
@@ -21,7 +21,7 @@ const handleThemeToggle = (e) =>{
 setTheme(e.target.checked? "dark": "light" )
 }
 
-  const { darkMode, setDarkMode } = useTheme();
+ 
    const links = <>
     
    <li> <NavLink to={'/'}>Home</NavLink></li>
@@ -87,13 +87,28 @@ const HandleLogOut = () => {
   }
 
   
-     {/* <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-        >
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button> */}
-        <input type="checkbox" name="" id=""  className='toggle' onChange={handleThemeToggle} checked={theme==="dark"} />
+     
+        {/* <input type="checkbox" name="" id=""  className='toggle' onChange={handleThemeToggle} checked={theme==="dark"} /> */}
+
+         <label className="cursor-pointer w-14 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex items-center px-1 transition-colors duration-300 relative">
+          <input
+            type="checkbox"
+            checked={theme === 'dark'}
+            onChange={handleThemeToggle}
+            className="sr-only"
+          />
+          <div
+            className={`absolute w-6 h-6 bg-white dark:bg-yellow-400 rounded-full shadow-md transform transition-transform duration-300 ${
+              theme === 'dark' ? 'translate-x-6' : 'translate-x-0'
+            }`}
+          />
+          <div className="absolute left-1 text-gray-600 dark:text-white">
+            <Sun size={16} />
+          </div>
+          <div className="absolute right-1 text-gray-600 dark:text-yellow-300">
+            <Moon size={16} />
+          </div>
+        </label>
     {
       user ? <button onClick={HandleLogOut} className="btn bg-green-600 text-white" >Log out</button> : <NavLink className="btn bg-green-600 text-white"  to={"/login"}>Log in</NavLink>
     }
