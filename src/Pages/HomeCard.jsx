@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router';
 import Lottie from 'lottie-react';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const HomeCard = ({plant}) => {
  
+  useEffect(() => {
+         AOS.init({
+           duration: 1000,
+           once: true,
+           offset: 120,          
+           easing: 'ease-in-out' 
+         });
+       }, []);
      const {
     image,
     name,
@@ -16,7 +25,7 @@ const HomeCard = ({plant}) => {
   } = plant;
  
     return (
-        <div className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300">
+        <div   data-aos="fade-up" className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300">
 
       {/* Image + Tooltip on Category */}
       <div className="relative">

@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/poppins": "^5.2.6",
     "@tailwindcss/vite": "^4.1.7",
+    "aos": "^2.3.4",
     "date-fns": "^4.1.0",
     "firebase": "^11.7.3",
     "framer-motion": "^12.12.1",

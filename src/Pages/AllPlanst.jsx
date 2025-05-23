@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import TableCard from './TableCard';
 import MobileCard from './MobileCard';
@@ -6,21 +6,35 @@ import NextWatering from '../Components/NextWatering';
 import { FaSort } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const AllPlanst = () => {
   const initialData = useLoaderData();
   const [plantsData, setPlantsData] = useState(initialData);
   const { loading } = useContext(AuthContext);
+   useEffect(() => {
+       AOS.init({
+         duration: 1000,
+         once: true,
+         offset: 120,          
+         easing: 'ease-in-out' 
+       });
+     }, []);
 
-  const handleSort = () => {
-    const sortedPlants = [...plantsData].sort(
-      (a, b) => new Date(a.nextWatering) - new Date(b.nextWatering)
-    );
-    setPlantsData(sortedPlants);
-  };
+  const handleSort = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/plants?sortBy=nextWatering&order=asc');
+    const sorted = await res.json();
+    setPlantsData(sorted);
+  } catch (err) {
+    console.error('Error fetching sorted data', err);
+  }
+}
 
   if (loading) return <Loading />;
+ 
 
   return (
     <div className="overflow-x-auto px-4">

@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const EasyMaintain = () => {
   const [plants, setPlants] = useState([]);
   const [easyCarePlants, setEasyCarePlants] = useState([]);
+  useEffect(() => {
+       AOS.init({
+         duration: 1000,
+         once: true,
+         offset: 120,          
+         easing: 'ease-in-out' 
+       });
+     }, []);
     useEffect(() => {
     fetch("http://localhost:3000/plants")
       .then((res) => res.json())
@@ -18,7 +27,7 @@ const EasyMaintain = () => {
       });
   }, []);
     return (
-      <section className="py-12 px-6 max-w-7xl mx-auto rounded-xl shadow-sm">
+      <section data-aos="fade-up" className="py-12 px-6 max-w-7xl mx-auto rounded-xl shadow-sm">
   <h2 className="text-4xl font-bold text-green-600 mb-8 text-center tracking-tight">
     Easy-Care Favorites
   </h2>
@@ -26,7 +35,7 @@ const EasyMaintain = () => {
   {easyCarePlants.length === 0 ? (
     <p className="text-center text-gray-500 text-lg">No easy-care plants found.</p>
   ) : (
-    <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+    <div data-aos="fade-up" className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
       {easyCarePlants.map((plant) => (
         <div
           key={plant._id}
