@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from "framer-motion";
 const HeroImage = "https://i.ibb.co/LzBmCSYj/plant1.jpg"
 const Hero = () => {
-    const text = "Top-Rated Greener Home...";
+    const text = "Top-Rated Tree ...";
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 20 },
@@ -37,7 +37,7 @@ const letterAnimation = {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          Welcome to <span className="text-green-600 font-semibold">Tree Plant Store</span> — 
+          Welcome to <span className="text-green-600 font-semibold">TreePlant </span> — 
 
 Bring elegance and fresh air indoors with our top-rated, low-maintenance trees—loved by plant enthusiasts and perfect for any space.
 
