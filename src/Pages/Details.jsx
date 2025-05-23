@@ -16,7 +16,7 @@ const Details = () => {
     userName} = data;
 
     return (
-       <div className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+       <div className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300 mt-8">
       <div className="relative">
         <img
           src={image}
@@ -61,7 +61,7 @@ const Details = () => {
             <p className="text-xs text-gray-500">{userEmail}</p>
           </div>
           <div className="w-10 h-10 rounded-full bg-green-300 flex items-center justify-center text-white font-bold shadow-md">
-            {userName[0].toUpperCase()}
+            {userName ? userName[0].toUpperCase() : "?"}
           </div>
         </div>
       </div>

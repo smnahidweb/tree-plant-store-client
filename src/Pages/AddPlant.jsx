@@ -61,19 +61,17 @@ const AddPlant = () => {
   <form onSubmit={HandleAdd} className="max-w-4xl mx-auto bg-white border border-green-200 p-10 rounded-3xl shadow-2xl space-y-6">
     <h2 className="text-3xl font-bold text-green-700 text-center"> Add a New Plant</h2>
 
-    {/* Image URL */}
     <div>
       <label className="block text-sm font-medium text-green-700">Image URL</label>
       <input placeholder='Image URL' type="text" name="image" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Plant Name */}
+  
     <div>
       <label className="block text-sm font-medium text-green-700">Plant Name</label>
       <input placeholder='Plant Name' type="text" name="name" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Category */}
     <div>
       <label className="block text-sm font-medium text-green-700">Category</label>
       <select placeholder='Category' name="category" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -83,13 +81,13 @@ const AddPlant = () => {
       </select>
     </div>
 
-    {/* Description */}
+  
     <div>
       <label className="block text-sm font-medium text-green-700">Description</label>
       <textarea placeholder='Description' name="description" rows="4" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Care Level */}
+  
     <div>
       <label className="block text-sm font-medium text-green-700">Care Level</label>
       <select  name="careLevel" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -99,43 +97,41 @@ const AddPlant = () => {
       </select>
     </div>
 
-    {/* Watering Frequency */}
+   
     <div>
       <label className="block text-sm font-medium text-green-700">Watering Frequency</label>
       <input placeholder='Watering Frequency' type="text" name="wateringFrequency" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Last Watered Date */}
+    
     <div>
       <label className="block text-sm font-medium text-green-700">Last Watered Date</label>
       <input placeholder='Last Watered Date' type="date" name="lastWatered" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Next Watering Date */}
+ 
     <div>
       <label className="block text-sm font-medium text-green-700">Next Watering Date</label>
       <input type="date" placeholder='Next Watered Date' name="nextWatering" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* Health Status */}
     <div>
       <label className="block text-sm font-medium text-green-700">Health Status</label>
       <input placeholder='Health Status' type="text" name="healthStatus" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* User Email */}
+   
     <div>
       <label className="block text-sm font-medium text-green-700">User Email</label>
       <input placeholder='User Email' defaultValue={user.email} type="email" name="userEmail" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
 
-    {/* User Name */}
-    <div>
-      <label className="block text-sm font-medium text-green-700">User Name</label>
-      <input type="text" placeholder='User Name' name="userName" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
-    </div>
-
-    {/* Submit Button */}
+ 
+      <div>
+         <label className="block text-sm font-medium text-green-700">User Name</label>
+         <input type="text" defaultValue={user.displayName} name="userName" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+       </div>
+  
     <div className="text-center">
       <button type="submit" className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300 w-full">
          Add Plant

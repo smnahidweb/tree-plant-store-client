@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const NextWatering = () => {
     const [PlantData,setPlantData] = useState([])
+    useEffect(() => {
+           AOS.init({
+             duration: 1000,
+             once: true,
+             offset: 120,          
+             easing: 'ease-in-out' 
+           });
+         }, []);
     useEffect( ()=>{
         fetch('http://localhost:3000/plants/').then(res => res.json()).then(data => setPlantData(data) )
     } )
@@ -10,7 +19,7 @@ const NextWatering = () => {
   .sort((a, b) => new Date(a.nextWatering) - new Date(b.nextWatering));
     return (
         <div>
-            <section className="py-12 px-6 max-w-7xl mx-auto">
+            <section data-aos="fade-up" className="py-12 px-6 max-w-7xl mx-auto">
   <h2 className="text-4xl font-bold text-green-600 mb-8 text-center tracking-tight">
      Upcoming Watering Schedule
   </h2>
@@ -18,7 +27,7 @@ const NextWatering = () => {
   {upcomingWateringPlants.length === 0 ? (
     <p className="text-center text-gray-500 text-lg">No upcoming watering tasks.</p>
   ) : (
-    <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div  data-aos="fade-up" className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {upcomingWateringPlants.map((plant) => (
         <div
           key={plant._id}

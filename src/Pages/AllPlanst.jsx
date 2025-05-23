@@ -75,7 +75,7 @@ const AllPlanst = () => {
         ))}
       </div>
 
-      <NextWatering />
+      {/* <NextWatering /> */}
     </div>
   );
 };

@@ -22,7 +22,7 @@ useEffect(() => {
   const plantDate = date.toISOString().split("T")[0];
   return plantDate === today;
 });
-  // Initialize checklist state for all plants to false
+ 
   useEffect(() => {
     const initialChecklist = {};
     upcomingWateringPlants.forEach((plant) => {
@@ -31,7 +31,7 @@ useEffect(() => {
     setChecklist(initialChecklist);
   }, [allPlant]);
 
-  // Toggle checkbox and show alert if marked true
+  
   const handleToggle = (plantId, plantName) => {
     setChecklist((prev) => {
       const newValue = !prev[plantId];
