@@ -48,7 +48,7 @@ const Update = () => {
   };
 
 
-  fetch(`http://localhost:3000/plants/${_id}`,{
+  fetch(`https://plant-tree-store-server.vercel.app/plants/${_id}`,{
      method:"PUT",
     headers: {
         'content-type':'application/json'
@@ -72,8 +72,8 @@ const Update = () => {
     }
     return (
         <div>
-            <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 py-12 px-4">
-  <form onSubmit={HandleUpdate} className="max-w-4xl mx-auto bg-white border border-green-200 p-10 rounded-3xl shadow-2xl space-y-6">
+            <div className="min-h-screen  py-12 px-4">
+  <form onSubmit={HandleUpdate} className="max-w-4xl mx-auto border border-green-200 p-10 rounded-3xl shadow-2xl space-y-6">
     <h2 className="text-3xl font-bold text-green-700 text-center"> Update Your Plant</h2>
 
     

@@ -27,7 +27,7 @@ const HomeCard = ({plant}) => {
     return (
         <div   data-aos="fade-up" className="max-w-sm mx-auto bg-gradient-to-br from-green-100 via-white to-green-200 backdrop-blur-md rounded-3xl border border-green-300 shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300">
 
-      {/* Image + Tooltip on Category */}
+     
       <div className="relative">
         <img
           src={image}
@@ -44,7 +44,7 @@ const HomeCard = ({plant}) => {
         <Tooltip id={`category-tooltip-${_id}`} place="bottom" />
       </div>
 
-      {/* Text Content */}
+    
       <div className="p-5 text-gray-800">
         <h2 className="text-xl font-bold text-green-800 tracking-tight mb-1">{name}</h2>
 

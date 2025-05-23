@@ -60,13 +60,13 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+    <div className="min-h-screen flex items-center justify-center  px-4">
+      <div className="w-full max-w-md  p-8 rounded-2xl shadow-xl border border-gray-200">
         <h2 className="text-2xl font-bold text-green-700 mb-6 text-center">Register</h2>
 
         <form onSubmit={HandleRegister} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <label className="block text-sm font-medium  mb-1">Full Name</label>
             <input
               type="text"
               name="name"
@@ -77,7 +77,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <label className="block text-sm font-medium  mb-1">Email Address</label>
             <input
               type="email"
               name="email"
@@ -88,7 +88,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Photo URL</label>
+            <label className="block text-sm font-medium  mb-1">Photo URL</label>
             <input
               type="url"
               name="photo"
@@ -99,7 +99,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium  mb-1">Password</label>
             <input
               type="password"
               name="password"
@@ -112,8 +112,8 @@ const Register = () => {
           {passwordError && <p className="text-red-500 text-sm mt-2">{passwordError}</p>}
 
           <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+            type="submit" 
+            className="w-full cursor-pointer bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
           >
             Register
           </button>

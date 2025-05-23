@@ -36,7 +36,7 @@ const AddPlant = () => {
   console.log(newPlant);
 
 
-  fetch('http://localhost:3000/plants',{
+  fetch('https://plant-tree-store-server.vercel.app/plants',{
     method:"POST",
     headers: {
         'content-type':'application/json'
@@ -57,8 +57,8 @@ const AddPlant = () => {
 
     }
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 py-12 px-4">
-  <form onSubmit={HandleAdd} className="max-w-4xl mx-auto bg-white border border-green-200 p-10 rounded-3xl shadow-2xl space-y-6">
+      <div className="min-h-screen  py-12 px-4">
+  <form onSubmit={HandleAdd} className="max-w-4xl mx-auto  border border-green-200 p-10 rounded-3xl shadow-2xl space-y-6">
     <h2 className="text-3xl font-bold text-green-700 text-center"> Add a New Plant</h2>
 
     <div>
@@ -74,7 +74,7 @@ const AddPlant = () => {
 
     <div>
       <label className="block text-sm font-medium text-green-700">Category</label>
-      <select placeholder='Category' name="category" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
+      <select placeholder='Category' name="category" className="w-full mt-1 p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
         <option value="succulent">Succulent</option>
         <option value="fern">Fern</option>
         <option value="flowering">Flowering</option>
@@ -90,7 +90,7 @@ const AddPlant = () => {
   
     <div>
       <label className="block text-sm font-medium text-green-700">Care Level</label>
-      <select  name="careLevel" className="w-full mt-1 p-3 border border-green-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500">
+      <select  name="careLevel" className="w-full mt-1 p-3 border border-green-300 rounded-lg  focus:outline-none focus:ring-2 focus:ring-green-500">
         <option value="easy">Easy</option>
         <option value="moderate">Moderate</option>
         <option value="difficult">Difficult</option>

@@ -11,9 +11,7 @@ import Details from '../Pages/Details';
 import PrivateRoute from '../Provider/PrivateRoute';
 import Update from '../Pages/Update';
 import Loading from '../Components/Loading';
-
-
-
+import PlanGuide from '../Pages/PlanGuide';
 
 
 const Router = createBrowserRouter([
@@ -25,7 +23,7 @@ const Router = createBrowserRouter([
       {
         path: '/',
         Component: Home,
-        loader: ()=> fetch('http://localhost:3000/plants/'),
+        loader: ()=> fetch('https://plant-tree-store-server.vercel.app/plants'),
          hydrateFallbackElement: <Loading></Loading>
         
         
@@ -40,7 +38,7 @@ const Router = createBrowserRouter([
       },
       {
         path:'/allPlants',
-        loader: ()=> fetch('http://localhost:3000/plants/'),
+        loader: ()=> fetch('https://plant-tree-store-server.vercel.app/plants'),
         Component:AllPlanst,
         hydrateFallbackElement: <Loading></Loading>
       },
@@ -61,15 +59,19 @@ const Router = createBrowserRouter([
         element: <PrivateRoute>
         <Details></Details>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({params}) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
          hydrateFallbackElement: <Loading></Loading>
       },
       {
         path:'/updateTree/:id',
-        loader: ({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({params})=> fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
         element:<Update></Update>,
          hydrateFallbackElement: <Loading></Loading>
       
+      },
+      {
+        path:"/plantsGuide",
+        Component:PlanGuide,
       }
 
     ]

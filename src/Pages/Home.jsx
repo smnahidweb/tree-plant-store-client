@@ -24,11 +24,11 @@ const Home = () => {
           return <Loading></Loading>
          }
     return (
-         <div className='text-black dark:bg-gray-900 dark:text-white min-h-screen p-6'>
+         <div className='text-black  dark:text-white min-h-screen p-6'>
           
       <Hero />
       <Banner />
-      <h2 className='text-4xl text-green-600 text-center font-bold mt-12'>Plants</h2>
+      <h2 className='text-4xl text-green-600 text-center font-bold mt-12'>New Plants</h2>
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-12'>
         {visiblePlants.map((plant) => (

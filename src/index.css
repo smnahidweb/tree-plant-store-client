@@ -13,6 +13,18 @@
 
 }
 
+[ data-theme = "light"]{
+    --TEXT-TABLE-COLOR:black;
+   
+
+}
+[ data-theme = "light"]{
+    --TEXT-TABLE-COLOR:white;
+   
+
+}
+
+
 a.active {
   color: green;
   text-decoration: underline;

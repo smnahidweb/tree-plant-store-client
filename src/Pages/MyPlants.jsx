@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
-import { div } from 'framer-motion/client';
+
 import Loading from '../Components/Loading';
 
 const MyPlants = () => {
@@ -12,7 +12,7 @@ const MyPlants = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myplants?email=${user.email}`)
+      fetch(`https://plant-tree-store-server.vercel.app/myplants?email=${user.email}`)
         .then(res => res.json())
         .then(data => setPlants(data));
     }
@@ -31,7 +31,7 @@ if(loading){
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/plants/${id}`, {
+        fetch(`https://plant-tree-store-server.vercel.app/plants/${id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())
@@ -50,7 +50,7 @@ if(loading){
   };
 
   return (
- <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-6">
+ <div className="min-h-screen  to-white p-6">
       <h2 className="text-4xl font-bold mb-8 text-green-700 text-center">
         My Plants Collection
       </h2>

@@ -25,7 +25,7 @@ const AllPlanst = () => {
 
   const handleSort = async () => {
   try {
-    const res = await fetch('http://localhost:3000/plants?sortBy=nextWatering&order=asc');
+    const res = await fetch('https://plant-tree-store-server.vercel.app/plants?sortBy=nextWatering&order=asc');
     const sorted = await res.json();
     setPlantsData(sorted);
   } catch (err) {
@@ -48,8 +48,8 @@ const AllPlanst = () => {
       </div>
 
       {/* Table view for medium and up */}
-      <table className="hidden md:table w-full divide-y text-white divide-green-200 shadow-lg rounded-lg overflow-hidden">
-        <thead className="bg-green-600 text-yellow-300">
+      <table className="hidden md:table w-full divide-y text-white  shadow-lg rounded-lg overflow-hidden">
+        <thead className="bg-green-600 text-white">
           <tr>
             <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Image</th>
             <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Name</th>
@@ -61,7 +61,7 @@ const AllPlanst = () => {
             <th className="px-6 py-3 text-left text-sm font-semibold uppercase">View</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-100 text-sm text-gray-700">
+        <tbody className=" divide-y divide-gray-100 text-sm text-gray-700">
           {plantsData.map((data) => (
             <TableCard key={data._id} data={data} />
           ))}

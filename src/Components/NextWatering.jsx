@@ -13,7 +13,7 @@ const NextWatering = () => {
            });
          }, []);
     useEffect( ()=>{
-        fetch('http://localhost:3000/plants/').then(res => res.json()).then(data => setPlantData(data) )
+        fetch('https://plant-tree-store-server.vercel.app/plants').then(res => res.json()).then(data => setPlantData(data) )
     } )
     const upcomingWateringPlants = PlantData.filter((plant) => new Date(plant.nextWatering) >= new Date())
   .sort((a, b) => new Date(a.nextWatering) - new Date(b.nextWatering));
