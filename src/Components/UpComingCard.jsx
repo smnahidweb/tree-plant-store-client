@@ -55,7 +55,7 @@ useEffect(() => {
       </h2>
 
       {upcomingWateringPlants.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg">No plants need watering today.</p>
+        <p className="text-center text-gray-500 text-lg">No plants need watering today. if you check the Functionality then in Add plant section, you give the todays date</p>
       ) : (
         <ul className="space-y-6 divide-y divide-green-100 bg-green-50 rounded-2xl p-6 shadow-sm">
           {upcomingWateringPlants.map((plant) => (

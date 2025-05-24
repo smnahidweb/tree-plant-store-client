@@ -9,7 +9,7 @@
 
 [ data-theme = "light"]{
     --TEXT-COLOR:black;
-     --HEADING-TITLE-TEXT:#016630;
+     --HEADING-TITLE-TEXT:#0dac57;
 
 }
 
@@ -26,6 +26,6 @@
 
 
 a.active {
-  color: green;
+  color: rgb(5, 237, 5);
   text-decoration: underline;
 }

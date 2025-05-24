@@ -41,11 +41,11 @@ const Navbar = () => {
   const links = (
     <>
       <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/allPlants">All Plants</NavLink></li>
-      <li><NavLink to="/addPlants">Add Plants</NavLink></li>
-      <li><NavLink to="/myPlants">My Plants</NavLink></li>
-      <li><NavLink to="/plantsGuide">Plants Guide </NavLink></li>
-      <li><NavLink to="/register">Register</NavLink></li>
+      <li><NavLink className={'text-[var(--HEADING-TITLE-TEXT)]'} to="/allPlants">All Plants</NavLink></li>
+      <li><NavLink className={'text-[var(--HEADING-TITLE-TEXT)]'} to="/addPlants">Add Plants</NavLink></li>
+      <li><NavLink className={'text-[var(--HEADING-TITLE-TEXT)]'} to="/myPlants">My Plants</NavLink></li>
+      <li><NavLink className={'text-[var(--HEADING-TITLE-TEXT)]'} to="/plantsGuide">Plants Guide </NavLink></li>
+      <li><NavLink className={'text-[var(--HEADING-TITLE-TEXT)]'} to="/register">Register</NavLink></li>
     </>
   );
 

@@ -28,23 +28,23 @@ const MobileCard = ({ data }) => {
   </thead>
 
   <tbody>
-    <tr className="block md:table-row md:border-none bg-white hover:bg-green-50 transition duration-300 ease-in-out border rounded-lg md:rounded-none mb-4 md:mb-0">
+    <tr className="block md:table-row md:border-none  hover:bg-green-50 transition duration-300 ease-in-out border rounded-lg md:rounded-none mb-4 md:mb-0">
       
       
-      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-green-900 font-medium">
-        <span className="md:hidden block text-xs font-semibold text-green-600 mb-1">Name</span>
+      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-[var(--TEXT-COLOR)]font-medium">
+        <span className="md:hidden block text-xs font-semibold text-[var(--TEXT-COLOR)] mb-1">Name</span>
         {name}
       </td>
 
       
-      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-green-800">
-        <span className="md:hidden block text-xs font-semibold text-green-600 mb-1">Next Watering</span>
+      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-[var(--TEXT-COLOR)]">
+        <span className="md:hidden block text-xs font-semibold text-[var(--TEXT-COLOR)] mb-1">Next Watering</span>
         {nextWatering}
       </td>
 
    
-      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-green-700">
-        <span className="md:hidden block text-xs font-semibold text-green-600 mb-1">Care</span>
+      <td className="block md:table-cell border border-green-200 px-6 py-4 text-sm text-[var(--TEXT-COLOR)]">
+        <span className="md:hidden block text-xs font-semibold text-[var(--TEXT-COLOR)] mb-1">Care</span>
         {healthStatus}
       </td>
 

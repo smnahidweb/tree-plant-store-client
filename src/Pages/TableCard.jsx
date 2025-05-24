@@ -26,7 +26,7 @@ const TableCard = ({ data }) => {
         />
       </td>
       <td className="px-6 py-4 font-medium text-green-800">{name}</td>
-      <td className="px-6 py-4">{category}</td>
+      <td className="px-6 py-4 ">{category}</td>
       <td className="px-6 py-4">{careLevel}</td>
       <td className="px-6 py-4">
         <div className="flex flex-col">
