@@ -1,5 +1,8 @@
 # TreePlant:
 
+<img src="https://i.ibb.co/fG896Nmt/treeLogo.png" width="100%" alt="Tour Logo" />
+
+
 A dynamic and responsive React application where users can explore a curated list of trees and manage their personal collection. This project encourages environmental awareness by allowing users to maintain a digital garden with full authentication and theming support.
 
 ---
