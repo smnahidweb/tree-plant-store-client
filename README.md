@@ -12,9 +12,6 @@ A dynamic and responsive web application that allows users to explore a curated 
 
 ---
 
-## 🖼️ Project Preview
-
-<img src="https://i.ibb.co/9w7DTt1/treePlant-preview.png" alt="TreePlant Screenshot" width="100%" />
 
 ---
 
