@@ -1,6 +1,6 @@
 # 🌱 TreePlant
 
-<img src="https://i.ibb.co/fG896Nmt/treeLogo.png" width="100%" alt="TreePlant Logo" />
+<img src="https://i.ibb.co/0pykTHd0/tour1.png" width="100%" alt="TreePlant Logo" />
 
 A dynamic and responsive web application that allows users to explore a curated collection of plants and manage their personal garden digitally. Built with the MERN stack (React, Express, MongoDB), TreePlant promotes environmental awareness and encourages users to grow and maintain their favorite trees virtually.
 
