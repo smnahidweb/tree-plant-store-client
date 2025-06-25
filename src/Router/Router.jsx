@@ -12,6 +12,7 @@ import PrivateRoute from '../Provider/PrivateRoute';
 import Update from '../Pages/Update';
 import Loading from '../Components/Loading';
 import PlanGuide from '../Pages/PlanGuide';
+import AuthLayout from '../Layout/AuthLayout';
 
 
 const Router = createBrowserRouter([
@@ -28,14 +29,7 @@ const Router = createBrowserRouter([
         
         
       },
-      {
-        path: '/login',
-        Component: Login
-      },
-      {
-        path:'/register',
-        Component:Register
-      },
+     
       {
         path:'/allPlants',
         loader: ()=> fetch('https://plant-tree-store-server.vercel.app/plants'),
@@ -76,7 +70,19 @@ const Router = createBrowserRouter([
 
     ]
   },
-  
+  {
+    path:'/',
+    Component:AuthLayout,
+    children:[
+      {
+        path:'/login',
+        Component:Login
+      },{
+        path:'/register',
+        Component:Register
+      }
+    ]
+  },
 
   
   {

@@ -66,8 +66,8 @@ navigate(`${location.state ? location.state : "/"}`)
     return (
         <div>
             <div className="min-h-screen flex items-center justify-center  px-4">
-  <div className="w-full max-w-md  p-8 rounded-2xl shadow-xl border border-gray-200">
-    <h2 className="text-2xl font-bold text-green-700 mb-6 text-center">Login</h2>
+  <div className="w-full max-w-md  p-8 rounded-2xl  ">
+    <h2 className="text-2xl font-extrabold text-green-700 mb-6 text-center">Welcome Back</h2>
 
     <form  onSubmit={HandleLogin} className="space-y-5">
    
