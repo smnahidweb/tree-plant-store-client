@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter } from 'react-router'; // ✅ Correct import
 import HomeLayout from '../Layout/HomeLayout';
 import Error from '../Pages/Error';
 import Home from '../Pages/Home';
@@ -13,82 +13,108 @@ import Update from '../Pages/Update';
 import Loading from '../Components/Loading';
 import PlanGuide from '../Pages/PlanGuide';
 import AuthLayout from '../Layout/AuthLayout';
-
+import Dashboard from '../Layout/Dashboard';
+import DashboardHome from '../Pages/Dashboard/DashboardHome';
+import About from '../Pages/About';
 
 const Router = createBrowserRouter([
   {
     path: '/',
     Component: HomeLayout,
-    errorElement:Error,
+    errorElement: <Error />,
     children: [
       {
         path: '/',
         Component: Home,
-        loader: ()=> fetch('https://plant-tree-store-server.vercel.app/plants'),
-         hydrateFallbackElement: <Loading></Loading>
-        
-        
-      },
-     
-      {
-        path:'/allPlants',
-        loader: ()=> fetch('https://plant-tree-store-server.vercel.app/plants'),
-        Component:AllPlanst,
-        hydrateFallbackElement: <Loading></Loading>
+        loader: () => fetch('https://plant-tree-store-server.vercel.app/plants'),
+        hydrateFallbackElement: <Loading />
       },
       {
-        path:'/myPlants',
-        element: <PrivateRoute>
-          <MyPlants></MyPlants>
-        </PrivateRoute>
+        path: '/allPlants',
+        Component: AllPlanst,
+        loader: () => fetch('https://plant-tree-store-server.vercel.app/plants'),
+        hydrateFallbackElement: <Loading />
       },
       {
-        path:'/addPlants',
-        element: <PrivateRoute>
-          <AddPlant></AddPlant>
-        </PrivateRoute>
+        path:'/about',
+        Component:About
       },
       {
         path: '/plants/:id',
-        element: <PrivateRoute>
-        <Details></Details>
-        </PrivateRoute>,
-        loader: ({params}) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
-         hydrateFallbackElement: <Loading></Loading>
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
+        hydrateFallbackElement: <Loading />
       },
       {
-        path:'/updateTree/:id',
-        loader: ({params})=> fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
-        element:<Update></Update>,
-         hydrateFallbackElement: <Loading></Loading>
-      
+        path: '/updateTree/:id',
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
+        hydrateFallbackElement: <Loading />
       },
       {
-        path:"/plantsGuide",
-        Component:PlanGuide,
-      }
-
-    ]
-  },
-  {
-    path:'/',
-    Component:AuthLayout,
-    children:[
-      {
-        path:'/login',
-        Component:Login
-      },{
-        path:'/register',
-        Component:Register
+        path: '/plantsGuide',
+        Component: PlanGuide
       }
     ]
   },
 
-  
+  // Auth Layout for Login/Register
   {
-    path: "*",
-    Component: Error, 
+    path: '/',
+    Component: AuthLayout,
+    children: [
+      {
+        path: '/login',
+        Component: Login
+      },
+      {
+        path: '/register',
+        Component: Register
+      }
+    ]
   },
+
+  // Dashboard (Private)
+  {
+    path: '/dashboard',
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+       {
+      index: true, // ✅ এই রুটটি হবে ডিফল্ট রেন্ডার হওয়া route
+      Component: DashboardHome, // অথবা element: <DashboardHome />
+    },
+      {
+        path: 'myProfile',
+        Component: DashboardHome
+      },
+      {
+        path: 'myPlants',
+        element: <MyPlants />
+      },
+      {
+        path: 'addPlants',
+        element: <AddPlant />
+      }
+    ]
+  },
+
+  // Catch-all route
+  {
+    path: '*',
+    Component: Error
+  }
 ]);
 
 export default Router;

@@ -6,8 +6,8 @@ import Banner from '../Components/Banner';
 
 const HomeLayout = () => {
     return (
-        <div>
-            <header>
+        <div className='flex flex-col min-h-screen"'>
+            <header className ="sticky top-0 z-50">
                 <Navbar></Navbar>
                 
             </header>
