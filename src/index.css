@@ -20,12 +20,11 @@
 }
 [ data-theme = "light"]{
     --TEXT-TABLE-COLOR:white;
-   
 
 }
 
 
 a.active {
-  color: rgb(5, 237, 5);
+  color: black;
   text-decoration: underline;
 }

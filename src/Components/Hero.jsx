@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { Link } from 'react-router';
 const HeroImage = "https://i.ibb.co/LzBmCSYj/plant1.jpg"
 const Hero = () => {
     const text = "Top-Rated Tree ...";
@@ -49,12 +50,18 @@ Bring elegance and fresh air indoors with our top-rated, low-maintenance treesâ€
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8 }}
         >
+          <Link to={'/plantsGuide'}>
+          
           <button className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition">
             Explore Trending Tips
           </button>
+          </Link>
+          <Link to={'/about'}>
+          
           <button className="border-2 border-green-600 text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
             Join Community
           </button>
+          </Link>
         </motion.div>
       </div>
 
@@ -77,9 +84,10 @@ Bring elegance and fresh air indoors with our top-rated, low-maintenance treesâ€
         </div>
 
         {/* Bottom Tag */}
-        <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-2 rounded-full shadow font-semibold flex items-center gap-2">
-           <span>Top Rated Plant</span>
-        </div>
+       <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full shadow font-medium sm:font-semibold text-sm sm:text-base flex items-center gap-2">
+  <span>Top Rated Plant</span>
+</div>
+
       </motion.div>
     </section>
     );

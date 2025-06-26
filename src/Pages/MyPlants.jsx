@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
+import { FaEdit, FaTrash } from 'react-icons/fa'
 
 import Loading from '../Components/Loading';
 
@@ -46,54 +47,69 @@ if(loading){
   };
 
   const handleUpdate = (id) => {
-    navigate(`/updateTree/${id}`);
+    navigate(`/dashboard/updateTree/${id}`);
   };
 
   return (
- <div className="min-h-screen  to-white p-6">
-      <h2 className="text-4xl font-bold mb-8 text-green-700 text-center">
-        My Plants Collection
-      </h2>
+ <div className="min-h-screen p-6 bg-gradient-to-b from-green-50 to-white">
+  <h2 className="text-4xl font-bold mb-8 text-green-700 text-center">
+    My Plants Collection
+  </h2>
 
-      {plants.length === 0 ? (
-        <p className="text-center text-gray-600 text-lg">There is no plant added by you.</p>
-      ) : (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {plants.length === 0 ? (
+    <p className="text-center text-gray-600 text-lg">There is no plant added by you.</p>
+  ) : (
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-white border border-green-200 rounded-xl overflow-hidden shadow-md">
+        <thead className="bg-green-600 text-white">
+          <tr>
+            <th className="py-3 px-6 text-left">Image</th>
+            <th className="py-3 px-6 text-left">Name</th>
+            <th className="py-3 px-6 text-left">Category</th>
+            <th className="py-3 px-6 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
           {plants.map((plant) => (
-            <div
+            <tr
               key={plant._id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-green-100"
+              className="hover:bg-green-50 transition-colors duration-200 border-b"
             >
-              <img
-                src={plant.image}
-                alt={plant.name}
-                className="h-52 w-full object-cover transition-transform duration-300 hover:scale-105"
-              />
-              <div className="p-5">
-                <h3 className="text-2xl font-semibold text-green-800">{plant.name}</h3>
-                <span className="inline-block bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full mt-2">
+              <td className="py-4 px-6">
+                <img
+                  src={plant.image}
+                  alt={plant.name}
+                  className="h-16 w-20 object-cover rounded-md border border-green-100"
+                />
+              </td>
+              <td className="py-4 px-6 text-green-800 font-semibold">{plant.name}</td>
+              <td className="py-4 px-6">
+                <span className="bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">
                   {plant.category}
                 </span>
-                <div className="flex justify-between items-center mt-6">
-                  <button
-                    onClick={() => handleUpdate(plant._id)}
-                    className="text-sm font-medium text-white bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition"
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={() => handleDelete(plant._id)}
-                    className="text-sm font-medium text-white bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600 transition"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <button
+                  onClick={() => handleUpdate(plant._id)}
+                  className=" mb-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md transition inline-flex items-center gap-2"
+                >
+                  <FaEdit /> Update
+                </button>
+                <button
+                  onClick={() => handleDelete(plant._id)}
+                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-md transition inline-flex items-center gap-2"
+                >
+                  <FaTrash /> Delete
+                </button>
+              </td>
+            </tr>
           ))}
-        </div>
-      )}
+        </tbody>
+      </table>
     </div>
+  )}
+</div>
+
   );
 };
 

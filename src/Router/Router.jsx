@@ -49,16 +49,7 @@ const Router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
         hydrateFallbackElement: <Loading />
       },
-      {
-        path: '/updateTree/:id',
-        element: (
-          <PrivateRoute>
-            <Update />
-          </PrivateRoute>
-        ),
-        loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
-        hydrateFallbackElement: <Loading />
-      },
+      
       {
         path: '/plantsGuide',
         Component: PlanGuide
@@ -92,8 +83,8 @@ const Router = createBrowserRouter([
     ),
     children: [
        {
-      index: true, // ✅ এই রুটটি হবে ডিফল্ট রেন্ডার হওয়া route
-      Component: DashboardHome, // অথবা element: <DashboardHome />
+      index: true, 
+      Component: DashboardHome, 
     },
       {
         path: 'myProfile',
@@ -106,7 +97,14 @@ const Router = createBrowserRouter([
       {
         path: 'addPlants',
         element: <AddPlant />
-      }
+      },
+      {
+        path: 'updateTree/:id',
+        element:<Update></Update>,
+        
+        loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
+        hydrateFallbackElement: <Loading />
+      },
     ]
   },
 

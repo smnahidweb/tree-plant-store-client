@@ -39,16 +39,22 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/allPlants">All Plants</NavLink></li>
-      <li><NavLink to="/plantsGuide">Plants Guide</NavLink></li>
-      <li><NavLink to="/register">Register</NavLink></li>
-      <li><NavLink to="/about">About Us</NavLink></li>
+      <li className={'text-white'}><NavLink className={'text-white'} to="/">Home</NavLink></li>
+      <li className={'text-white'}><NavLink to="/allPlants">All Plants</NavLink></li>
+      <li className={'text-white'}><NavLink to="/plantsGuide">Plants Guide</NavLink></li>
+      <li className={'text-white'}><NavLink to="/register">Register</NavLink></li>
+      <li className={'text-white'}><NavLink to="/about">About Us</NavLink></li>
+
+      {
+        user && <>
+         <li className={'text-white'}><NavLink to="/dashboard">Dashboard</NavLink></li>
+        </>
+      }
     </>
   );
 
   return (
-    <div className="sticky top-0 z-50 bg-white shadow-md">
+    <div className="sticky top-0 z-50 bg-green-600  shadow-md">
       <div className="navbar max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Navbar Start */}
@@ -73,7 +79,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-2">
             <img src={logo} alt="logo" className="w-8 h-8 rounded-full hidden md:block" />
-            <span className="text-xl font-bold text-green-700">TreePlant</span>
+            <span className="text-xl font-bold text-white">TreePlant</span>
           </div>
         </div>
 

@@ -12,7 +12,7 @@ const Dashboard = () => {
       {/* Main content area */}
       <div className="drawer-content flex flex-col">
         {/* Topbar for mobile */}
-        <div className="w-full flex justify-between items-center p-4 bg-green-600 text-white lg:hidden">
+        <div className="w-full flex justify-between items-center p-4  text-white lg:hidden">
           <label htmlFor="dashboard-drawer" className="btn btn-ghost text-xl text-white">
             <FaBars />
           </label>
@@ -26,30 +26,30 @@ const Dashboard = () => {
       </div>
 
       {/* Sidebar menu */}
-      <div className="drawer-side">
-        <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-72 min-h-full bg-base-200 text-base-content space-y-2">
+      <div className="drawer-side ">
+        <label htmlFor="dashboard-drawer" className="drawer-overlay "></label>
+        <ul className="menu p-4 w-72 min-h-full text-base-content space-y-2 bg-green-400">
 
           {/* Home link */}
           <li>
             <NavLink to="/" className="flex items-center gap-2">
-              <AiOutlineHome className="text-2xl text-green-600" />
-              <span className="text-xl font-bold text-green-700">TreePlant</span>
+              <AiOutlineHome className="text-2xl text-white" />
+              <span className="text-xl font-bold text-white">TreePlant</span>
             </NavLink>
           </li>
 
           {/* Dashboard Links */}
-          <li>
+          <li className='text-white'>
             <NavLink to="/dashboard/myProfile" className="text-base font-medium">
              My Profile
             </NavLink>
           </li>
-          <li>
+          <li className='text-white'>
             <NavLink to="/dashboard/myPlants" className="text-base font-medium">
               My Plants
             </NavLink>
           </li>
-          <li>
+          <li className='text-white'>
             <NavLink to="/dashboard/addPlants" className="text-base font-medium">
               Add Plant
             </NavLink>
