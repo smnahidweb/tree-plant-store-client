@@ -1,7 +1,9 @@
 import React from 'react';
 import UpComingCard from './UpComingCard';
+import { useLoaderData } from 'react-router';
 
-const UpComingWatering = ({allPlant}) => {
+const UpComingWatering = () => {
+    const allPlant = useLoaderData()
     console.log(allPlant)
   
     return (

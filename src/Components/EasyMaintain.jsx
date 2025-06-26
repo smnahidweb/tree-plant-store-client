@@ -56,7 +56,7 @@ const EasyMaintain = () => {
                 />
 
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="text-lg font-semibold text-green-900">{plant.name}</h3>
+                  <h3 className="text-lg font-semibold text-green-600">{plant.name}</h3>
                   <span
                     className="bg-green-100 text-green-600 text-xs font-medium px-2 py-1 rounded-full cursor-help"
                     data-tooltip-id={`easycare-tooltip-${plant._id}`}

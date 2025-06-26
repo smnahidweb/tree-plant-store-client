@@ -31,6 +31,7 @@ const AddPlant = () => {
     healthStatus,
     userEmail,
     userName,
+    TodaysWateringStatus:'pending'
   };
 
   console.log(newPlant);

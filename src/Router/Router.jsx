@@ -17,6 +17,8 @@ import Dashboard from '../Layout/Dashboard';
 import DashboardHome from '../Pages/Dashboard/DashboardHome';
 import About from '../Pages/About';
 
+import UpComingWatering from '../Components/UpComingWatering';
+
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -105,6 +107,17 @@ const Router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://plant-tree-store-server.vercel.app/plants/${params.id}`),
         hydrateFallbackElement: <Loading />
       },
+      {
+        path:'todaysWatering',
+        Component:UpComingWatering,
+         loader: () => fetch('https://plant-tree-store-server.vercel.app/plants'),
+      },
+      {
+        path:'allPlants',
+        Component:AllPlanst,
+         loader: () => fetch('https://plant-tree-store-server.vercel.app/plants'),
+        
+      }
     ]
   },
 

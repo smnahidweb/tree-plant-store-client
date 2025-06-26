@@ -48,7 +48,26 @@ const Dashboard = () => {
             <NavLink to="/dashboard/myPlants" className="text-base font-medium">
               My Plants
             </NavLink>
+          
+
           </li>
+           <li className='text-white'>
+            <NavLink to="/dashboard/allPlants" className="text-base font-medium">
+              All Plants
+            </NavLink>
+          
+
+          </li>
+
+<li className='text-white'>
+            <NavLink to="/dashboard/todaysWatering" className="text-base font-medium">
+             Check Todays Watering
+            </NavLink>
+           
+            
+          </li>
+
+
           <li className='text-white'>
             <NavLink to="/dashboard/addPlants" className="text-base font-medium">
               Add Plant

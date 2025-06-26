@@ -54,7 +54,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="sticky top-0 z-50 bg-green-600  shadow-md">
+    <div className="sticky top-0 z-50 bg-green-500  shadow-md">
       <div className="navbar max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Navbar Start */}
@@ -78,14 +78,14 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-2">
-            <img src={logo} alt="logo" className="w-8 h-8 rounded-full hidden md:block" />
+            <img src={logo} alt="logo" className="w-8 h-8 rounded-full hidden border border-white md:block" />
             <span className="text-xl font-bold text-white">TreePlant</span>
           </div>
         </div>
 
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-4 font-medium text-green-700">
+          <ul className="menu menu-horizontal px-1 gap-4 font-medium text-green-600">
             {links}
           </ul>
         </div>
@@ -95,7 +95,7 @@ const Navbar = () => {
           {user && (
             <div className="relative group">
               <img
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-10 h-10 rounded-full cursor-pointer border border-white"
                 src={user.photoURL}
                 alt="Profile"
               />
@@ -128,11 +128,11 @@ const Navbar = () => {
 
           {/* Auth Button */}
           {user ? (
-            <button onClick={HandleLogOut} className="btn btn-sm bg-green-600 text-white">
+            <button onClick={HandleLogOut} className="btn btn-sm bg-green-500 ">
               Log out
             </button>
           ) : (
-            <NavLink to="/login" className="btn btn-sm bg-green-600 text-white">
+            <NavLink to="/login" className="btn btn-sm bg-green-500">
               Log in
             </NavLink>
           )}

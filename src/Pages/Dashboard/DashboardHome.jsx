@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { FaLeaf, FaPlusCircle, FaSeedling } from 'react-icons/fa';
+import { FaChartBar, FaLeaf, FaPlusCircle, FaSeedling } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const DashboardHome = () => {
@@ -69,6 +69,14 @@ const DashboardHome = () => {
         <h2 className="text-2xl font-bold mt-4 text-green-700">{user?.displayName}</h2>
         <p className="text-gray-600">{user?.email}</p>
       </div>
+       <h2 className='text-green-700  font-extrabold text-4xl text-center  mb-10'>Welcome Back {user?.displayName}</h2>
+       <h4 className="text-center text-xl font-semibold text-green-700 flex justify-center gap-2 mb-6">
+  <FaChartBar className="text-green-600 text-2xl" />
+  Your Statistics
+</h4>
+       <div>
+
+       </div>
 
       {/* Stats Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

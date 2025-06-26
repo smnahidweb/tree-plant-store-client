@@ -47,7 +47,7 @@ const Banner = () => {
                 </p>
                 <div className="flex justify-center lg:justify-start">
                   <Link to="/allPlants">
-                    <button className="cursor-pointer mt-4 px-6 py-3 bg-green-700 hover:bg-green-800 text-white text-base rounded-lg transition duration-300">
+                    <button className="cursor-pointer mt-4 px-6 py-3 bg-green-500 hover:bg-green-800 text-white text-base rounded-lg transition duration-300">
                       Explore All Plants Now
                     </button>
                   </Link>

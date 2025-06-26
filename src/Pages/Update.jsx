@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Update = () => {
     const data = useLoaderData();
+    const navigate = useNavigate()
     console.log(data)
     const {image,
         _id,
@@ -65,6 +66,7 @@ const Update = () => {
               icon: "success",
               draggable: true
             });
+            navigate('/dashboard/myPlants')
         }
   })
 

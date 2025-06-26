@@ -46,7 +46,7 @@ const HomeCard = ({plant}) => {
 
     
       <div className="p-5 text-gray-800">
-        <h2 className="text-xl font-bold text-green-800 tracking-tight mb-1">{name}</h2>
+        <h2 className="text-xl font-bold text-green-600 tracking-tight mb-1">{name}</h2>
 
         <div className="grid grid-cols-2 gap-2 text-xs text-gray-700 mt-2 bg-green-50 p-3 rounded-xl shadow-inner">
           <div

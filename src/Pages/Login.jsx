@@ -93,7 +93,7 @@ navigate(`${location.state ? location.state : "/"}`)
       
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+        className="cursor-pointer w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
       >
         Login
       </button>

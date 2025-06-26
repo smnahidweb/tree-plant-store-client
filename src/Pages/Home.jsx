@@ -7,6 +7,7 @@ import UpComingWatering from '../Components/UpComingWatering';
 import Hero from '../Components/Hero';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
+import Newsletter from './Newsletter';
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -56,9 +57,7 @@ const Home = () => {
         <EasyMaintain />
       </div>
 
-      <div className='mt-14'>
-        <UpComingWatering allPlant={allPlant} />
-      </div>
+     <Newsletter></Newsletter>
     </div>
   );
 };

@@ -52,13 +52,13 @@ Bring elegance and fresh air indoors with our top-rated, low-maintenance treesâ€
         >
           <Link to={'/plantsGuide'}>
           
-          <button className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition">
+          <button className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition">
             Explore Trending Tips
           </button>
           </Link>
           <Link to={'/about'}>
           
-          <button className="border-2 border-green-600 text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
+          <button className="border-2 border-green-500 text-green-500 px-6 py-3 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
             Join Community
           </button>
           </Link>
