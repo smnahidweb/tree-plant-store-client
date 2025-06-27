@@ -8,6 +8,7 @@ import Hero from '../Components/Hero';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
 import Newsletter from './Newsletter';
+import Community from './Community';
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -58,6 +59,7 @@ const Home = () => {
       </div>
 
      <Newsletter></Newsletter>
+     
     </div>
   );
 };

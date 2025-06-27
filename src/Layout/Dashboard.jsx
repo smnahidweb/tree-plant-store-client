@@ -74,6 +74,12 @@ const Dashboard = () => {
             </NavLink>
           </li>
 
+          <li className='text-white'>
+            <NavLink to="/dashboard/newsletter" className="text-base font-medium">
+              Our Subscriber
+            </NavLink>
+          </li>
+
         </ul>
       </div>
     </div>

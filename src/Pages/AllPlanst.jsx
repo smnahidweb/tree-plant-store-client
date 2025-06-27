@@ -1,83 +1,96 @@
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
-import TableCard from './TableCard';
-import MobileCard from './MobileCard';
-import NextWatering from '../Components/NextWatering';
-import { FaSort } from 'react-icons/fa';
+import {
+  FaSortAmountDownAlt,
+  FaSortAmountUpAlt,
+  FaSeedling,
+  FaTag,
+} from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import TableCard from './TableCard';
 
-
-const AllPlanst = () => {
+const AllPlants = () => {
   const initialData = useLoaderData();
   const [plantsData, setPlantsData] = useState(initialData);
   const { loading } = useContext(AuthContext);
-   useEffect(() => {
-       AOS.init({
-         duration: 1000,
-         once: true,
-         offset: 120,          
-         easing: 'ease-in-out' 
-       });
-     }, []);
+  const [sortOrder, setSortOrder] = useState(null); // null | 'asc' | 'desc'
 
-  const handleSort = async () => {
-  try {
-    const res = await fetch('https://plant-tree-store-server.vercel.app/plants?sortBy=nextWatering&order=asc');
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true, offset: 120, easing: 'ease-in-out' });
+  }, []);
+
+  const handleSort = async (order) => {
+    setSortOrder(order);
+
+    const url = `https://plant-tree-store-server.vercel.app/plants?sortBy=nextWatering&order=${order}`;
+    const res = await fetch(url);
     const sorted = await res.json();
     setPlantsData(sorted);
-  } catch (err) {
-    console.error('Error fetching sorted data', err);
-  }
-}
+  };
 
   if (loading) return <Loading />;
- 
 
   return (
-    <div className="overflow-x-auto px-4">
-      <div className="flex justify-center items-center mb-4">
+    <div className="px-4 py-8 overflow-x-hidden max-w-full">
+      {/* Title and Description */}
+      <div className="text-center max-w-3xl mx-auto mb-8">
+        <h1 className="text-4xl font-extrabold text-green-700 mb-3 flex justify-center items-center gap-2">
+          <FaSeedling /> Explore Our Diverse Plant Collection
+        </h1>
+        <p className="text-gray-700 text-base">
+          Discover a wide range of healthy plants perfect for any space. Whether you want
+          indoor greens or outdoor trees, find your perfect match here!
+        </p>
+      </div>
+
+      {/* Static Promotional Banner */}
+      <div className="bg-green-100 border border-green-300 rounded-lg p-4 mb-8 max-w-4xl mx-auto text-center shadow flex flex-col sm:flex-row items-center justify-center gap-2">
+        <FaTag className="text-green-700 text-2xl" />
+        <div>
+          <h2 className="text-green-700 font-semibold text-lg mb-1">
+            Special Promotion: Get 10% off on all Easy Care Plants!
+          </h2>
+          <p className="text-green-600 text-sm">
+            Hurry, limited time offer to make your green space flourish with minimal effort.
+          </p>
+        </div>
+      </div>
+
+      {/* Sorting Controls */}
+      <div className="flex flex-wrap justify-center gap-4 mb-8">
         <button
-          onClick={handleSort}
-          className="btn mt-4 bg-green-600 text-white flex items-center gap-2"
+          onClick={() => handleSort('asc')}
+          className={`btn px-4 py-2 rounded-lg text-white flex items-center gap-2 bg-green-600 hover:bg-green-700 shadow ${
+            sortOrder === 'asc' ? 'ring-2 ring-green-500' : ''
+          }`}
         >
-          <FaSort size={18} /> Sort by Next Watering
+          <FaSortAmountUpAlt /> Sort by Next Watering (Asc)
+        </button>
+        <button
+          onClick={() => handleSort('desc')}
+          className={`btn px-4 py-2 rounded-lg text-white flex items-center gap-2 bg-green-600 hover:bg-green-700 shadow ${
+            sortOrder === 'desc' ? 'ring-2 ring-green-500' : ''
+          }`}
+        >
+          <FaSortAmountDownAlt /> Sort by Next Watering (Desc)
         </button>
       </div>
 
-      {/* Table view for medium and up */}
-      <table className="hidden md:table w-full divide-y text-white  shadow-lg rounded-lg overflow-hidden">
-        <thead className="bg-green-600 text-white">
-          <tr>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Image</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Name</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Category</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Care Level</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Watering</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">Health</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">User</th>
-            <th className="px-6 py-3 text-left text-sm font-semibold uppercase">View</th>
-          </tr>
-        </thead>
-        <tbody className=" divide-y divide-gray-100 text-sm text-gray-700">
-          {plantsData.map((data) => (
-            <TableCard key={data._id} data={data} />
-          ))}
-        </tbody>
-      </table>
-
-      {/* Card view for small screens */}
-      <div className="md:hidden space-y-4 mt-6">
-        {plantsData.map((data) => (
-          <MobileCard key={data._id} data={data} />
+      {/* Card Grid */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        data-aos="fade-up"
+        style={{ maxWidth: '100%', overflowX: 'hidden' }}
+      >
+        {plantsData.map((plant) => (
+          <TableCard key={plant._id} data={plant} />
         ))}
       </div>
-
-      {/* <NextWatering /> */}
     </div>
   );
 };
 
-export default AllPlanst;
+export default AllPlants;

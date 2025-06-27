@@ -18,6 +18,7 @@ import DashboardHome from '../Pages/Dashboard/DashboardHome';
 import About from '../Pages/About';
 
 import UpComingWatering from '../Components/UpComingWatering';
+import Community from '../Pages/Community';
 
 const Router = createBrowserRouter([
   {
@@ -117,6 +118,9 @@ const Router = createBrowserRouter([
         Component:AllPlanst,
          loader: () => fetch('https://plant-tree-store-server.vercel.app/plants'),
         
+      },{
+        path:'newsletter',
+        Component:Community
       }
     ]
   },
