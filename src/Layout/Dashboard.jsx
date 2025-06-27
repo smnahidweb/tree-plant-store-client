@@ -12,8 +12,8 @@ const Dashboard = () => {
       {/* Main content area */}
       <div className="drawer-content flex flex-col">
         {/* Topbar for mobile */}
-        <div className="w-full flex justify-between items-center p-4  text-white lg:hidden">
-          <label htmlFor="dashboard-drawer" className="btn btn-ghost text-xl text-white">
+        <div className="w-full flex justify-between items-center p-4  text-green-500 lg:hidden">
+          <label htmlFor="dashboard-drawer" className="btn btn-ghost text-xl text-green-500">
             <FaBars />
           </label>
           <span className="font-bold text-lg">Dashboard</span>
@@ -28,7 +28,7 @@ const Dashboard = () => {
       {/* Sidebar menu */}
       <div className="drawer-side ">
         <label htmlFor="dashboard-drawer" className="drawer-overlay "></label>
-        <ul className="menu p-4 w-72 min-h-full text-base-content space-y-2 bg-green-400">
+        <ul className="menu p-4 w-72 min-h-full text-base-content space-y-2 bg-green-500">
 
           {/* Home link */}
           <li>
@@ -59,13 +59,13 @@ const Dashboard = () => {
 
           </li>
 
-<li className='text-white'>
+{/* <li className='text-white'>
             <NavLink to="/dashboard/todaysWatering" className="text-base font-medium">
              Check Todays Watering
             </NavLink>
            
             
-          </li>
+          </li> */}
 
 
           <li className='text-white'>
@@ -74,11 +74,11 @@ const Dashboard = () => {
             </NavLink>
           </li>
 
-          <li className='text-white'>
+          {/* <li className='text-white'>
             <NavLink to="/dashboard/newsletter" className="text-base font-medium">
               Our Subscriber
             </NavLink>
-          </li>
+          </li> */}
 
         </ul>
       </div>

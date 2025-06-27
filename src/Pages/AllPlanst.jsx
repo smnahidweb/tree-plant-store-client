@@ -37,10 +37,10 @@ const AllPlants = () => {
     <div className="px-4 py-8 overflow-x-hidden max-w-full">
       {/* Title and Description */}
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <h1 className="text-4xl font-extrabold text-green-700 mb-3 flex justify-center items-center gap-2">
+        <h1 className="text-4xl font-extrabold text-[var(--HEADING-TITLE-TEXT)] mb-3 flex justify-center items-center gap-2">
           <FaSeedling /> Explore Our Diverse Plant Collection
         </h1>
-        <p className="text-gray-700 text-base">
+        <p className="text-[var(--TEXT-COLOR)] text-base">
           Discover a wide range of healthy plants perfect for any space. Whether you want
           indoor greens or outdoor trees, find your perfect match here!
         </p>
@@ -48,12 +48,12 @@ const AllPlants = () => {
 
       {/* Static Promotional Banner */}
       <div className="bg-green-100 border border-green-300 rounded-lg p-4 mb-8 max-w-4xl mx-auto text-center shadow flex flex-col sm:flex-row items-center justify-center gap-2">
-        <FaTag className="text-green-700 text-2xl" />
+        <FaTag className="text-[var(--HEADING-TITLE-TEXT)]text-2xl" />
         <div>
-          <h2 className="text-green-700 font-semibold text-lg mb-1">
+          <h2 className="text-[var(--HEADING-TITLE-TEXT)] font-semibold text-lg mb-1">
             Special Promotion: Get 10% off on all Easy Care Plants!
           </h2>
-          <p className="text-green-600 text-sm">
+          <p className="text-sm text-black">
             Hurry, limited time offer to make your green space flourish with minimal effort.
           </p>
         </div>

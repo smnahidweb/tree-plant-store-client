@@ -119,25 +119,25 @@ const UpComingCard = () => {
   return (
     <section className="py-14 px-6 max-w-5xl mx-auto">
       <h2 className="text-4xl font-bold text-center text-green-600 mb-10">
-        <FaTint className="inline-block mr-2 text-green-600" size={30} />
+        <FaTint className="inline-block mr-2 font-bold text-green-500" size={30} />
         Today's Watering Schedule
       </h2>
 
       {pendingPlants.length === 0 ? (
-        <p className="text-center text-gray-600 text-lg">No plants need watering today.</p>
+        <p className="text-center text-[var(--TEXT-COLOR)] text-lg">No plants need watering today.</p>
       ) : (
         <ul className="space-y-6 divide-y divide-green-100 bg-green-50 rounded-2xl p-6 shadow-sm mb-10">
           {pendingPlants.map(renderPlantItem)}
         </ul>
       )}
 
-      <h2 className="text-3xl font-bold text-center text-green-700 mt-12 mb-6">
+      <h2 className="text-3xl text-center font-bold text-green-500 mt-12 mb-6">
         <FaCheckCircle className="inline-block mr-2 text-green-600" size={28} />
         Completed Today’s Watering
       </h2>
 
       {completedPlants.length === 0 ? (
-        <p className="text-center text-gray-500 text-md">No plants have been watered yet today.</p>
+        <p className="text-center text-[var(--TEXT-COLOR)] text-md">No plants have been watered yet today.</p>
       ) : (
         <ul className="space-y-6 divide-y divide-green-100 bg-white rounded-2xl p-6 shadow-sm">
           {completedPlants.map(renderPlantItem)}

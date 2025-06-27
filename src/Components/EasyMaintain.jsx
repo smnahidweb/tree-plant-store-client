@@ -20,11 +20,11 @@ const EasyMaintain = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://plant-tree-store-server.vercel.app/plants")
+    fetch('https://plant-tree-store-server.vercel.app/plants')
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(
-          (plant) => plant.careLevel?.toLowerCase() === "easy"
+          (plant) => plant.careLevel?.toLowerCase() === 'easy'
         );
         setEasyCarePlants(filtered);
       });
@@ -33,7 +33,7 @@ const EasyMaintain = () => {
   const visiblePlants = showAll ? easyCarePlants : easyCarePlants.slice(0, 8);
 
   return (
-    <section data-aos="fade-up" className="py-12 px-6 max-w-7xl mx-auto rounded-xl">
+    <section data-aos="fade-up" className="py-12 px-6 max-w-7xl mx-auto rounded-2xl">
       <h2 className="text-4xl font-bold text-green-600 mb-4 text-center">Easy-Care Favorites</h2>
       <p className="text-center text-[var(--TEXT-COLOR)] mb-8 max-w-xl mx-auto">
         These plants are perfect for beginners or those who prefer low-maintenance greenery.
@@ -50,7 +50,7 @@ const EasyMaintain = () => {
                 className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 flex flex-col justify-between w-full h-[420px]"
               >
                 <img
-                  src={plant.image || "https://via.placeholder.com/300"}
+                  src={plant.image || 'https://via.placeholder.com/300'}
                   alt={plant.name}
                   className="w-full h-40 object-cover rounded-xl mb-4"
                 />
@@ -68,7 +68,7 @@ const EasyMaintain = () => {
                 </div>
 
                 <p className="text-sm text-gray-700 mb-2 line-clamp-2">
-                  {plant.description || "No description available."}
+                  {plant.description || 'No description available.'}
                 </p>
 
                 <div
@@ -82,7 +82,10 @@ const EasyMaintain = () => {
                 </div>
 
                 <NavLink to={`/plants/${plant._id}`}>
-                  <button className="btn bg-green-600 w-full text-white" aria-label={`View details of ${plant.name}`}>
+                  <button
+                    className="btn bg-green-600 w-full text-white"
+                    aria-label={`View details of ${plant.name}`}
+                  >
                     View
                   </button>
                 </NavLink>
@@ -97,7 +100,7 @@ const EasyMaintain = () => {
                 className="btn btn-wide mt-10 bg-green-600 text-white"
                 aria-expanded={showAll}
               >
-                {showAll ? "Show Less" : "Show More"}
+                {showAll ? 'Show Less' : 'Show More'}
               </button>
             </div>
           )}
