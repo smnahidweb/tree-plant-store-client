@@ -19,6 +19,8 @@ import About from '../Pages/About';
 
 import UpComingWatering from '../Components/UpComingWatering';
 import Community from '../Pages/Community';
+import PrivacyPolicy from '../Pages/PrivacyPolicy';
+import Terms from '../Pages/Terms';
 
 const Router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const Router = createBrowserRouter([
       {
         path: '/plantsGuide',
         Component: PlanGuide
+      }
+      ,{
+        path:'/privacy',
+        Component:PrivacyPolicy
+      },
+      {
+        path:'/terms',
+        Component:Terms
       }
     ]
   },
